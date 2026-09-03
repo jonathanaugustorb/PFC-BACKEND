@@ -4,8 +4,7 @@ Documentação das tecnologias planejadas para o back-end da plataforma ForçaMe
 
 Projeto Final de Curso (PFC) — Bacharelado em Sistemas de Informação, Universidade de Mogi das Cruzes (UMC), 2026.
 
-Repositório de código: [PFC-BACKEND](https://github.com/ofelpys/PFC-BACKEND)
-Repositório do front-end: [PFC](https://github.com/jonathanaugustorb/PFC)
+Repositório do front-end: [PFC-FRONTEND](https://github.com/ofelpys/PFC-FRONTEND)
 
 ## Arquitetura
 
