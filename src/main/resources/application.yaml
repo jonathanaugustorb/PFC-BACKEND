@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: forcamente-api
+
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/forcamente}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:cristiano}
+
+  flyway:
+    enabled: false
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  port: 8080
+
+logging:
+  level:
+    forcamente.api: DEBUG

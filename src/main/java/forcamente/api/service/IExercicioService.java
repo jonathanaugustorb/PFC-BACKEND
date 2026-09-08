@@ -1,0 +1,19 @@
+package forcamente.api.service;
+
+import forcamente.api.dto.ExercicioRequestDTO;
+import forcamente.api.dto.ExercicioResponseDTO;
+import forcamente.api.entity.GrupoMuscularEnum;
+
+import java.util.List;
+import java.util.UUID;
+
+public interface IExercicioService {
+
+    ExercicioResponseDTO criarExercicio(ExercicioRequestDTO exercicioRequestDTO);
+
+    List<ExercicioResponseDTO> listarExercicios();
+
+    List<ExercicioResponseDTO> listarPorGrupoMuscular(GrupoMuscularEnum grupoMuscular);
+
+    ExercicioResponseDTO buscarPorId(UUID exercicioId);
+}
