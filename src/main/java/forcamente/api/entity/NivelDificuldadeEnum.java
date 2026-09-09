@@ -6,8 +6,8 @@ import lombok.Getter;
 public enum NivelDificuldadeEnum {
 
     INICIANTE("Iniciante"),
-    INTERMEDIARIO("Intermediario"),
-    AVANCADO("Avancado");
+    INTERMEDIARIO("Intermediário"),
+    AVANCADO("Avançado");
 
     private final String descricao;
 

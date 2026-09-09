@@ -2,8 +2,10 @@ package forcamente.api.service.impl;
 
 import forcamente.api.dto.ExercicioRequestDTO;
 import forcamente.api.dto.ExercicioResponseDTO;
+import forcamente.api.dto.OpcaoDTO;
 import forcamente.api.entity.ExercicioEntity;
 import forcamente.api.entity.GrupoMuscularEnum;
+import forcamente.api.entity.NivelDificuldadeEnum;
 import forcamente.api.mapper.ExercicioMapper;
 import forcamente.api.repository.IExercicioRepository;
 import forcamente.api.service.IExercicioService;
@@ -12,6 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
@@ -73,5 +76,21 @@ public class ExercicioService implements IExercicioService {
         return exercicioRepository.findById(exercicioId)
                 .orElseThrow(() -> new IllegalArgumentException(
                         "Exercicio nao encontrado: " + exercicioId));
+    }
+
+    @Override
+    public List<OpcaoDTO> listarGruposMusculares() {
+        log.info("listarGruposMusculares");
+        return Arrays.stream(GrupoMuscularEnum.values())
+                .map(grupo -> new OpcaoDTO(grupo.name(), grupo.getDescricao()))
+                .toList();
+    }
+
+    @Override
+    public List<OpcaoDTO> listarNiveis() {
+        log.info("listarNiveis");
+        return Arrays.stream(NivelDificuldadeEnum.values())
+                .map(nivel -> new OpcaoDTO(nivel.name(), nivel.getDescricao()))
+                .toList();
     }
 }
