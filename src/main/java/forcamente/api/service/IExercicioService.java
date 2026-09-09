@@ -3,7 +3,7 @@ package forcamente.api.service;
 import forcamente.api.dto.ExercicioRequestDTO;
 import forcamente.api.dto.ExercicioResponseDTO;
 import forcamente.api.dto.OpcaoDTO;
-import forcamente.api.entity.GrupoMuscularEnum;
+import forcamente.api.entity.enums.GrupoMuscularEnum;
 import java.util.List;
 import java.util.UUID;
 

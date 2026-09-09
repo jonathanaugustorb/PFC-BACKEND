@@ -1,5 +1,6 @@
 package forcamente.api.entity;
 
+import forcamente.api.entity.enums.PapelUsuarioEnum;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

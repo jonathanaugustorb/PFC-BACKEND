@@ -1,5 +1,7 @@
 package forcamente.api.entity;
 
+import forcamente.api.entity.enums.GrupoMuscularEnum;
+import forcamente.api.entity.enums.NivelDificuldadeEnum;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

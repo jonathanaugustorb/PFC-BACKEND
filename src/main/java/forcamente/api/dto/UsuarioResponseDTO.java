@@ -1,6 +1,6 @@
 package forcamente.api.dto;
 
-import forcamente.api.entity.PapelUsuarioEnum;
+import forcamente.api.entity.enums.PapelUsuarioEnum;
 
 import java.time.LocalDateTime;
 import java.util.UUID;

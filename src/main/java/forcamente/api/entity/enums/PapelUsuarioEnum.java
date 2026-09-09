@@ -1,4 +1,4 @@
-package forcamente.api.entity;
+package forcamente.api.entity.enums;
 
 import lombok.Getter;
 

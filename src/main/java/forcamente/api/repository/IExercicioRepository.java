@@ -1,7 +1,7 @@
 package forcamente.api.repository;
 
 import forcamente.api.entity.ExercicioEntity;
-import forcamente.api.entity.GrupoMuscularEnum;
+import forcamente.api.entity.enums.GrupoMuscularEnum;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

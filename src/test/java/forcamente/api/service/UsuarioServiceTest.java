@@ -2,7 +2,7 @@ package forcamente.api.service;
 
 import forcamente.api.dto.UsuarioRequestDTO;
 import forcamente.api.dto.UsuarioResponseDTO;
-import forcamente.api.entity.PapelUsuarioEnum;
+import forcamente.api.entity.enums.PapelUsuarioEnum;
 import forcamente.api.entity.UsuarioEntity;
 import forcamente.api.mapper.UsuarioMapper;
 import forcamente.api.repository.IUsuarioRepository;

@@ -1,6 +1,6 @@
 package forcamente.api.dto;
 
-import forcamente.api.entity.PapelUsuarioEnum;
+import forcamente.api.entity.enums.PapelUsuarioEnum;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

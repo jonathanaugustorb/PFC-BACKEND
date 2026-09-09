@@ -2,7 +2,8 @@ package forcamente.api.controller;
 
 import forcamente.api.dto.ExercicioRequestDTO;
 import forcamente.api.dto.ExercicioResponseDTO;
-import forcamente.api.entity.GrupoMuscularEnum;
+import forcamente.api.dto.OpcaoDTO;
+import forcamente.api.entity.enums.GrupoMuscularEnum;
 import forcamente.api.service.IExercicioService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -47,6 +48,16 @@ public class ExercicioController {
                 : exercicioService.listarPorGrupoMuscular(grupoMuscular);
 
         return ResponseEntity.ok(exercicios);
+    }
+
+    @GetMapping("/grupos-musculares")
+    public ResponseEntity<List<OpcaoDTO>> listarGruposMusculares(){
+        return ResponseEntity.ok(exercicioService.listarGruposMusculares());
+    }
+
+    @GetMapping("/niveis")
+    public ResponseEntity<List<OpcaoDTO>> listarNiveis(){
+        return ResponseEntity.ok(exercicioService.listarNiveis());
     }
 
     @GetMapping("/{id}")

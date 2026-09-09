@@ -1,7 +1,7 @@
 package forcamente.api.dto;
 
-import forcamente.api.entity.GrupoMuscularEnum;
-import forcamente.api.entity.NivelDificuldadeEnum;
+import forcamente.api.entity.enums.GrupoMuscularEnum;
+import forcamente.api.entity.enums.NivelDificuldadeEnum;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
