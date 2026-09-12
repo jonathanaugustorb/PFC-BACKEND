@@ -8,14 +8,7 @@ import forcamente.api.service.IExercicioService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.util.List;
@@ -51,17 +44,31 @@ public class ExercicioController {
     }
 
     @GetMapping("/grupos-musculares")
-    public ResponseEntity<List<OpcaoDTO>> listarGruposMusculares(){
+    public ResponseEntity<List<OpcaoDTO>> listarGruposMusculares() {
         return ResponseEntity.ok(exercicioService.listarGruposMusculares());
     }
 
     @GetMapping("/niveis")
-    public ResponseEntity<List<OpcaoDTO>> listarNiveis(){
+    public ResponseEntity<List<OpcaoDTO>> listarNiveis() {
         return ResponseEntity.ok(exercicioService.listarNiveis());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<ExercicioResponseDTO> buscarPorId(@PathVariable("id") UUID id) {
         return ResponseEntity.ok(exercicioService.buscarPorId(id));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<ExercicioResponseDTO> atualizarExercicio(
+            @PathVariable("id") UUID id,
+            @Valid @RequestBody ExercicioRequestDTO exercicioRequestDTO){
+
+        return ResponseEntity.ok(exercicioService.atualizarExercicio(id, exercicioRequestDTO));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> excluirExercicio(@PathVariable("id") UUID id){
+        exercicioService.excluirExercicio(id);
+        return ResponseEntity.noContent().build();
     }
 }

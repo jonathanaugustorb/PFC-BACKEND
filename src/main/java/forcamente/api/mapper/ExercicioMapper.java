@@ -5,13 +5,21 @@ import forcamente.api.dto.ExercicioResponseDTO;
 import forcamente.api.entity.ExercicioEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
 
 @Mapper(componentModel = "spring")
 public interface ExercicioMapper {
 
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "criadoEm", expression = "java(java.time.LocalDateTime.now())")
+    @Mapping(target = "atualizadoEm", ignore = true)
     ExercicioEntity toEntity(ExercicioRequestDTO exercicioRequestDTO);
 
     ExercicioResponseDTO toDTO(ExercicioEntity exercicioEntity);
+
+    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "criadoEm", ignore = true)
+    @Mapping(target = "grupoMuscular", ignore = true)
+    @Mapping(target = "atualizadoEm", expression = "java(java.time.LocalDateTime.now())")
+    void atualizarEntity(ExercicioRequestDTO exercicioRequestDTO, @MappingTarget ExercicioEntity exercicioEntity);
 }

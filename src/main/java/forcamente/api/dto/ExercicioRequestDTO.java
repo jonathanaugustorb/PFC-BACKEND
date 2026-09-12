@@ -29,4 +29,7 @@ public record ExercicioRequestDTO(
 
         String gifUrl
 ) {
+        public ExercicioRequestDTO{
+                nome = nome == null ? null : nome.trim();
+        }
 }

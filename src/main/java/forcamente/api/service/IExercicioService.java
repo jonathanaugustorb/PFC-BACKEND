@@ -17,6 +17,10 @@ public interface IExercicioService {
 
     ExercicioResponseDTO buscarPorId(UUID exercicioId);
 
+    ExercicioResponseDTO atualizarExercicio(UUID exercicioId, ExercicioRequestDTO exercicioRequestDTO);
+
+    void excluirExercicio(UUID exercicioId);
+
     List<OpcaoDTO> listarGruposMusculares();
 
     List<OpcaoDTO> listarNiveis();

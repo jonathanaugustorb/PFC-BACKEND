@@ -16,6 +16,7 @@ public record ExercicioResponseDTO(
         String aquecimentoRecomendado,
         String equipamento,
         String gifUrl,
-        LocalDateTime criadoEm
+        LocalDateTime criadoEm,
+        LocalDateTime atualizadoEm
 ) {
 }

@@ -59,4 +59,7 @@ public class ExercicioEntity {
 
     @Column(name = "criado_em", nullable = false)
     private LocalDateTime criadoEm;
+
+    @Column(name = "atualizado_em")
+    private LocalDateTime atualizadoEm;
 }

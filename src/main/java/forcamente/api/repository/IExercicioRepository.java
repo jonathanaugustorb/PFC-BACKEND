@@ -13,5 +13,7 @@ public interface IExercicioRepository extends JpaRepository<ExercicioEntity, UUI
 
     List<ExercicioEntity> findByGrupoMuscular(GrupoMuscularEnum grupoMuscular);
 
-    boolean existsByNome(String nome);
+    boolean existsByNomeIgnoreCase(String nome);
+
+    boolean existsByNomeIgnoreCaseAndIdNot(String nome, UUID id);
 }

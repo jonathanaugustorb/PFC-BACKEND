@@ -32,7 +32,7 @@ public class ExercicioService implements IExercicioService {
     public ExercicioResponseDTO criarExercicio(ExercicioRequestDTO exercicioRequestDTO) {
         log.info("criarExercicio: {}", exercicioRequestDTO.nome());
 
-        if (exercicioRepository.existsByNome(exercicioRequestDTO.nome())) {
+        if (exercicioRepository.existsByNomeIgnoreCase(exercicioRequestDTO.nome())) {
             throw new IllegalArgumentException(
                     "Ja existe um exercicio cadastrado com o nome: " + exercicioRequestDTO.nome());
         }
@@ -70,6 +70,35 @@ public class ExercicioService implements IExercicioService {
     public ExercicioResponseDTO buscarPorId(UUID exercicioId) {
         log.info("buscarPorId: {}", exercicioId);
         return exercicioMapper.toDTO(findById(exercicioId));
+    }
+
+    @Override
+    @Transactional
+    public ExercicioResponseDTO atualizarExercicio(UUID exercicioId, ExercicioRequestDTO exercicioRequestDTO) {
+        log.info("atualizarExercicio:{}", exercicioId);
+
+        ExercicioEntity exercicioEntity = findById(exercicioId);
+
+        if (exercicioEntity.getGrupoMuscular() != exercicioRequestDTO.grupoMuscular()) {
+            throw new IllegalArgumentException("O Grupo Muscular não pode ser alterado");
+        }
+
+        if (exercicioRepository.existsByNomeIgnoreCaseAndIdNot(exercicioRequestDTO.nome(), exercicioId)) {
+            throw new IllegalArgumentException("Ja existe um exercicio cadastrado com o nome: " +
+                    exercicioRequestDTO.nome());
+        }
+
+        exercicioMapper.atualizarEntity(exercicioRequestDTO, exercicioEntity);
+        ExercicioEntity exercicioSalvo = exercicioRepository.save(exercicioEntity);
+
+        return exercicioMapper.toDTO(exercicioSalvo);
+    }
+
+    @Override
+    @Transactional
+    public void excluirExercicio(UUID exercicioId) {
+        log.info("excluirExercicio: {}", exercicioId);
+        exercicioRepository.delete(findById(exercicioId));
     }
 
     private ExercicioEntity findById(UUID exercicioId) {
