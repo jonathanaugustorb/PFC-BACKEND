@@ -48,7 +48,7 @@ class ExercicioServiceTest {
         var entity = umaEntidade();
         var responseDTO = umaResposta(entity);
 
-        when(exercicioRepository.existsByNome("Supino reto")).thenReturn(false);
+        when(exercicioRepository.existsByNomeIgnoreCase("Supino reto")).thenReturn(false);
         when(exercicioMapper.toEntity(requestDTO)).thenReturn(entity);
         when(exercicioRepository.save(entity)).thenReturn(entity);
         when(exercicioMapper.toDTO(entity)).thenReturn(responseDTO);
@@ -68,7 +68,7 @@ class ExercicioServiceTest {
     void naoDeveCadastrarExercicioComNomeDuplicado() {
         var requestDTO = umaRequisicaoValida();
 
-        when(exercicioRepository.existsByNome("Supino reto")).thenReturn(true);
+        when(exercicioRepository.existsByNomeIgnoreCase("Supino reto")).thenReturn(true);
 
         assertThatThrownBy(() -> exercicioService.criarExercicio(requestDTO))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -154,6 +154,7 @@ class ExercicioServiceTest {
                 entity.getAquecimentoRecomendado(),
                 entity.getEquipamento(),
                 entity.getGifUrl(),
-                entity.getCriadoEm());
+                entity.getCriadoEm(),
+                entity.getAtualizadoEm());
     }
 }
